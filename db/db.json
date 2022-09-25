@@ -1,1 +1,9 @@
-[{"title":"Test Title","text":"Test text"},{"title":"Testing 123","text":"Jingle Jingle bell"}]
+{
+  "notes": [
+    {
+      "title": "Testing!!!",
+      "text": "are you sure?!?!?",
+      "id": "w2ozj8a64zo9kkbs2sc2"
+    }
+  ]
+}
