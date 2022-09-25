@@ -1,3 +1,4 @@
+// importing modules, dependencies & Data parsing
 const fs = require('fs');
 const express = require("express");
 const path = require("path");
@@ -6,13 +7,15 @@ const PORT = process.env.PORT || 3001;
 
 const { notes }  = require("./db/db.json");
 
+// Middleware function Express.
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static('public'));
 
-//Generate Unique ID from install npm module
+// Generate Unique ID from installed npm module
 const generateUniqueId = require('generate-unique-id');
 
+// Create new note function
 function createNewNote(body, notesArray) {
     const note = body; 
     notesArray.push(note);
@@ -23,7 +26,7 @@ function createNewNote(body, notesArray) {
     return note;
   };  
 
-
+  // routes to handle the HTML & Notes GET/Post/Delete requests
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, './public/index.html'));
 });
@@ -51,6 +54,7 @@ app.delete('/api/notes/:id', (req, res) => {
   return res.send();
 });
 
+// Listener
 app.listen(PORT, () => {
     console.log(`App listening on PORT ${PORT}`);
   });
